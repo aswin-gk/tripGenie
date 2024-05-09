@@ -7,11 +7,11 @@ const amadeus = new Amadeus({
   clientSecret: constants.GDS_SECRET,
 });
 
-const getHotels = (hotels) => {
-  console.log("destination: ", area);
+const getHotels = (cityCode) => {
+  console.log("destination: ", cityCode);
   amadeus.referenceData.locations.hotels.byCity
     .get({
-      cityCode: area,
+      cityCode: cityCode,
     })
     .then(function (response) {
       console.log(response);
