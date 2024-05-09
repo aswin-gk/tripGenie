@@ -6,7 +6,7 @@ export const handlePostRequest = (req, res) => {
   const postData = req.body;
 
   // Process the data (you can perform any logic here)
-  console.log("Received POST data:", postData.destination);
+  console.log("Received POST data:", postData);
   // const hotelResults = getHotels(postData.destination);
 
   // Send response
