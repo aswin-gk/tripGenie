@@ -4,6 +4,7 @@ import path from "path";
 import crypto from "crypto";
 import { totalmem } from "os";
 import { fileURLToPath } from "url"; // Import fileURLToPath function
+import { request } from "http";
 
 const __filename = fileURLToPath(import.meta.url);
 
@@ -41,6 +42,20 @@ export const handleCitySearch = async (req, res) => {
   res.status(200).json({
     iataCode: result[0]?.iataCode,
     cityName: result[0]?.name,
+  });
+};
+
+export const confirmHotel = async (req, res) => {
+  // Extract data from request body
+  const postData = req.body;
+
+  // Process the data (you can perform any logic here)
+  console.log("Received Confirm hotel POST data:", postData);
+
+  // Send response
+  res.status(200).json({
+    hotelName: postData.hotel,
+    price: 300,
   });
 };
 

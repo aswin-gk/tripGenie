@@ -6,6 +6,7 @@ import {
   handlePostRequest,
   handleCitySearch,
   generateInvoice,
+  confirmHotel,
 } from "./controllers/dialogflowController.js";
 import { fileURLToPath } from "url"; // Import fileURLToPath function
 
@@ -27,6 +28,7 @@ app.use(bodyParser.json());
 app.post("/api/webhooks/hotel", handlePostRequest);
 app.post("/api/webhooks/citySearch", handleCitySearch);
 app.post("/api/webhooks/invoice", generateInvoice);
+app.post("/api/webhooks/hotelConfirm", confirmHotel);
 
 // Serve the HTML file
 app.get("/", (req, res) => {
