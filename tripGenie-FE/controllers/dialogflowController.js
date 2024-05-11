@@ -196,7 +196,7 @@ function generateInvoiceHTML(items, user) {
           <td>${new Date().toDateString()}</td>  </tr>
         <tr>
           <th>Client:</th>
-          <td>${user.name},${user.email}</td>  </tr>
+          <td>${user.name.name},${user.email}</td>  </tr>
       </table>
     </div>
     <div class="invoice-items">
