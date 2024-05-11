@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Invoice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .invoice {
+            width: 80%;
+            margin: 20px auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .invoice-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .invoice-details {
+            margin-bottom: 20px;
+        }
+
+        .invoice-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .invoice-details th,
+        .invoice-details td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .invoice-footer {
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .btn-make-payment {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="invoice">
+        <div class="invoice-header">
+            <h2>Payment Invoice</h2>
+        </div>
+        <div class="invoice-details">
+            <table>
+                <tr>
+                    <th>Invoice Number:</th>
+                    <td>#INV-001</td>
+                </tr>
+                <tr>
+                    <th>Date:</th>
+                    <td>May 11, 2024</td>
+                </tr>
+                <tr>
+                    <th>Due Date:</th>
+                    <td>May 25, 2024</td>
+                </tr>
+                <tr>
+                    <th>Client:</th>
+                    <td>Client Name</td>
+                </tr>
+            </table>
+        </div>
+        <div class="invoice-items">
+            <table>
+                <tr>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+                <tr>
+                    <td>Service Description</td>
+                    <td>$100.00</td>
+                </tr>
+            </table>
+        </div>
+        <div class="invoice-footer">
+            <p>Total Amount Due: $100.00</p>
+            <button class="btn-make-payment" onclick="makePayment()">Make Payment</button>
+        </div>
+    </div>
+
+    <script>
+        function makePayment() {
+            // Your payment processing logic goes here
+            alert("Redirecting to payment gateway...");
+            // You can redirect the user to a payment gateway or perform any other action as needed
+        }
+    </script>
+</body>
+
+</html>

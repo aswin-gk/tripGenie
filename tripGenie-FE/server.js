@@ -2,7 +2,11 @@ import express from "express";
 import bodyParser from "body-parser";
 import path from "path";
 import dotenv from "dotenv";
-import { handlePostRequest } from "./controllers/dialogflowController.js";
+import {
+  handlePostRequest,
+  handleCitySearch,
+  generateInvoice,
+} from "./controllers/dialogflowController.js";
 import { fileURLToPath } from "url"; // Import fileURLToPath function
 
 const __filename = fileURLToPath(import.meta.url); // Get current filename
@@ -21,6 +25,8 @@ app.use(bodyParser.json());
 
 // Define route for handling POST requests
 app.post("/api/webhooks/hotel", handlePostRequest);
+app.post("/api/webhooks/citySearch", handleCitySearch);
+app.post("/api/webhooks/invoice", generateInvoice);
 
 // Serve the HTML file
 app.get("/", (req, res) => {

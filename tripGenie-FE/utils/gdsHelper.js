@@ -7,19 +7,36 @@ const amadeus = new Amadeus({
   clientSecret: constants.GDS_SECRET,
 });
 
-const getHotels = (cityCode) => {
+const getHotels = async (cityCode) => {
   console.log("destination: ", cityCode);
-  amadeus.referenceData.locations.hotels.byCity
-    .get({
+  try {
+    const response = await amadeus.referenceData.locations.hotels.byCity.get({
       cityCode: cityCode,
-    })
-    .then(function (response) {
-      console.log(response);
-      return response;
-    })
-    .catch(function (response) {
-      console.error(response);
     });
+    console.log(response);
+    return response; // Assuming the response contains data property
+  } catch (error) {
+    console.error(error);
+    throw error; // Rethrow the error to be handled by the caller
+  }
 };
 
-export { getHotels };
+const getCity = async (cityCode) => {
+  console.log("destination: ", cityCode);
+  try {
+    const response = await amadeus.referenceData.locations.cities
+      .get({
+        keyword: cityCode,
+      })
+      .catch(function (response) {
+        console.error(response);
+      });
+    console.log("resp: ", response);
+    return response?.result?.data; // Assuming the response contains data property
+  } catch (error) {
+    console.error(error);
+    throw error; // Rethrow the error to be handled by the caller
+  }
+};
+
+export { getHotels, getCity };
